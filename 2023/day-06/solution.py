@@ -21,17 +21,17 @@ def solve(t, d):
 
     while i < j:
         mid = (i + j) // 2
-
+        # found
+        if (mid-1) * (t - mid + 1) <= d < mid * (t - mid):
+            break
         # search right
-        if mid * (t - mid) <= d:
+        elif mid * (t - mid) <= d:
             i = mid + 1
-
         # search left
         elif mid * (t - mid) > d:
-            if (mid-1) * (t - mid + 1) <= d:
-                break
             j = mid
 
+    # return range
     return t - 2 * mid + 1
 
 
